@@ -1,4 +1,4 @@
-package com.jms.jms.point_to_point;
+package com.jms.jms.Native_JMS.point_to_point;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 
@@ -7,10 +7,10 @@ import javax.jms.*;
 /**
  * 點對點模式：訊息消費者
  */
-public class Consumer2 {
+public class Consumer1 {
 
     /**
-     * 第二種消費方式
+     * 第一種消費方式
      */
     public static void main(String[] args) throws JMSException {
 
@@ -32,21 +32,18 @@ public class Consumer2 {
         // 6. 創建消費者
         MessageConsumer consumer = session.createConsumer(queue);
 
-        // 7. 設置訊息監聽器讓消費者接收訊息
-        consumer.setMessageListener(new MessageListener() {
-            // 處理訊息
-            @Override
-            public void onMessage(Message message) {
-                if (message instanceof TextMessage) {
-                    TextMessage textMessage = (TextMessage) message;
-                    try {
-                        System.out.println("接收的訊息：" + textMessage.getText());
-                    } catch (JMSException e) {
-                        e.printStackTrace();
-                    }
-                }
+        // 7. 消費者接收訊息
+        while (true) {
+            Message message = consumer.receive();
+            // 如果沒有訊息，則退出
+            if (message == null) {
+                break;
             }
-        });
-
+            // 如果有訊息，可判斷什麼類型的訊息
+            if (message instanceof TextMessage) {
+                TextMessage textMessage = (TextMessage) message;
+                System.out.println("接收的訊息：" + textMessage);
+            }
+        }
     }
 }

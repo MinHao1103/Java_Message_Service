@@ -1,4 +1,4 @@
-package com.jms.jms.point_to_point;
+package com.jms.jms.Native_JMS.point_to_point;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 

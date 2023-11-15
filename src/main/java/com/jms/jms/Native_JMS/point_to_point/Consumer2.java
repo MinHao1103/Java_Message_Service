@@ -1,14 +1,17 @@
-package com.jms.jms.publish_subscribe;
+package com.jms.jms.Native_JMS.point_to_point;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 import javax.jms.*;
 
 /**
- * 發布訂閱模式：訊息消費者
+ * 點對點模式：訊息消費者
  */
-public class PS_Consumer {
+public class Consumer2 {
 
+    /**
+     * 第二種消費方式
+     */
     public static void main(String[] args) throws JMSException {
 
         // 1. 創建連線工廠
@@ -24,10 +27,10 @@ public class PS_Consumer {
         Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 
         // 5. 確認目的地 (Queue：點對點，Topic：發佈訂閱)
-        Topic topic = session.createTopic("topic01");
+        Queue queue = session.createQueue("queue01");
 
         // 6. 創建消費者
-        MessageConsumer consumer = session.createConsumer(topic);
+        MessageConsumer consumer = session.createConsumer(queue);
 
         // 7. 設置訊息監聽器讓消費者接收訊息
         consumer.setMessageListener(new MessageListener() {

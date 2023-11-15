@@ -1,4 +1,4 @@
-package com.jms.jms.publish_subscribe;
+package com.jms.jms.Native_JMS.publish_subscribe;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 
