@@ -1,5 +1,5 @@
 # 使用版本
-* Java 版本：11
+* Java 版本：8
 * Spring Boot 版本：2.7.10
 * ActiveMQ 版本：5.16.0
 
