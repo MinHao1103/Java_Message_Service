@@ -42,7 +42,7 @@ public class Native_PTP_Consumer1 {
             // 如果有訊息，可判斷什麼類型的訊息
             if (message instanceof TextMessage) {
                 TextMessage textMessage = (TextMessage) message;
-                System.out.println("接收的訊息：" + textMessage);
+                System.out.println("接收的訊息：" + textMessage.getText());
             }
         }
     }
