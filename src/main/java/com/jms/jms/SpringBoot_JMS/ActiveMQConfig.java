@@ -20,6 +20,7 @@ public class ActiveMQConfig {
     public ConnectionFactory connectionFactory() {
         ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory();
         connectionFactory.setBrokerURL(brokerUrl);
+        connectionFactory.setClientID(String.valueOf(Math.random()));
         return connectionFactory;
     }
 
@@ -62,7 +63,7 @@ public class ActiveMQConfig {
         DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
         factory.setConnectionFactory(connectionFactory());
         factory.setPubSubDomain(true); // 使用 Topic
-        factory.setConcurrency("3-10"); // 設置並發消費者的數量
+        factory.setConcurrency("3-10"); // 設置併發消費者的數量
         return factory;
     }
 

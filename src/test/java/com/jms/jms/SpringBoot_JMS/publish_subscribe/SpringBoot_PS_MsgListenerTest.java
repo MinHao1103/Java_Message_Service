@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 @SpringBootTest(classes = JmsApplication.class)
 class SpringBoot_PS_MsgListenerTest {
 
-    private CountDownLatch latch = new CountDownLatch(3);
+    private CountDownLatch latch = new CountDownLatch(10);
 
     @Test
     void testSendAndReceiveMessage() throws InterruptedException, JMSException {
