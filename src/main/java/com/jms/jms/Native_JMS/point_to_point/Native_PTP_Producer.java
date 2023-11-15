@@ -7,7 +7,7 @@ import javax.jms.*;
 /**
  * 點對點模式：訊息生產者
  */
-public class Producer {
+public class Native_PTP_Producer {
     public static void main(String[] args) throws JMSException {
 
         // 1. 創建連線工廠

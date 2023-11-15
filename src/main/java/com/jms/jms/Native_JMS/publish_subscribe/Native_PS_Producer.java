@@ -7,7 +7,7 @@ import javax.jms.*;
 /**
  * 發布訂閱模式：訊息生產者
  */
-public class PS_Producer {
+public class Native_PS_Producer {
 
     public static void main(String[] args) throws JMSException {
 
