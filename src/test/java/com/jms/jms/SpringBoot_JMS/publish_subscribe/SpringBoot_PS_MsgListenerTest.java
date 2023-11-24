@@ -20,12 +20,12 @@ class SpringBoot_PS_MsgListenerTest {
         }
     }
 
-    @JmsListener(destination = "springboot_topic", containerFactory = "jmsTopic1ListenerContainerFactory")
+    @JmsListener(destination = "${springboot.topic.name}", containerFactory = "jmsTopic1ListenerContainerFactory")
     public void ps_receiveMessage1(Message message) {
         processMessage(message);
     }
 
-    @JmsListener(destination = "springboot_topic", containerFactory = "jmsTopic2ListenerContainerFactory")
+    @JmsListener(destination = "${springboot.topic.name}", containerFactory = "jmsTopic2ListenerContainerFactory")
     public void ps_receiveMessage2(Message message) {
         processMessage(message);
     }

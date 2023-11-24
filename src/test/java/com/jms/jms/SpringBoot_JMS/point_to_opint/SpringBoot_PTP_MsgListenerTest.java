@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 @SpringBootTest(classes = JmsApplication.class)
 class SpringBoot_PTP_MsgListenerTest {
 
-    private CountDownLatch latch = new CountDownLatch(6);
+    private CountDownLatch latch = new CountDownLatch(6); // 測試監聽 6 筆訊息就結束
 
     @Test
     void testSendAndReceiveMessage() throws InterruptedException, JMSException {
@@ -27,7 +27,7 @@ class SpringBoot_PTP_MsgListenerTest {
      * destination：Queue 或 Topic 名稱
      * 備註：使用 @SpringBootTest 測試類，Spring Boot 會掃描所有的 bean (包括 JMS 的 listener bean)
      */
-    @JmsListener(destination = "springboot_queue", containerFactory = "jmsQueueListenerContainerFactory")
+    @JmsListener(destination = "${springboot.queue.name}", containerFactory = "jmsQueueListenerContainerFactory")
     public void ptp_receiveMessage(Message message) {
         if (message instanceof TextMessage) {
             TextMessage textMessage = (TextMessage) message;
